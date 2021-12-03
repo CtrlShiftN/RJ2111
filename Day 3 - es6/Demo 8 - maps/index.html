@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const myMap = new Map()
+
+        const keyString = 'a string'
+        const keyObj = {}
+        const keyFunc = function () { }
+
+        // setting the values
+        myMap.set(keyString, "value associated with 'a string'")
+        myMap.set(keyObj, 'value associated with keyObj')
+        myMap.set(keyFunc, 'value associated with keyFunc')
+
+        myMap.size              // 3
+
+        // getting the values
+        myMap.get(keyString)    // "value associated with 'a string'"
+        myMap.get(keyObj)       // "value associated with keyObj"
+        myMap.get(keyFunc)      // "value associated with keyFunc"
+
+        myMap.get('a string')    // "value associated with 'a string'"
+        // because keyString === 'a string'
+        myMap.get({})            // undefined, because keyObj !== {}
+        myMap.get(function () { }) // undefined, because keyFunc !== function () {}
+
+
+
+        // -------------------------
+
+
+        const first = new Map([
+            [1, 'one'],
+            [2, 'two'],
+            [3, 'three'],
+        ])
+
+        const second = new Map([
+            [1, 'uno'],
+            [2, 'dos']
+        ])
+
+        // Merge two maps. The last repeated key wins.
+        // Spread operator essentially converts a Map to an Array
+        const merged = new Map([...first, ...second])
+        console.log(merged);
+
+
+    </script>
+</body>
+
+</html>

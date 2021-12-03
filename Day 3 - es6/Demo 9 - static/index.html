@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class ClassWithStaticMethod {
+            static staticProperty = '1';
+            static staticMethod() {
+                return '2';
+            }
+            static {
+                console.log('3');
+            }
+        }
+        console.log(ClassWithStaticMethod.staticProperty); // output: "someValue“
+        console.log(ClassWithStaticMethod.staticMethod()); // output: "static method has been called."
+
+    </script>
+</body>
+
+</html>

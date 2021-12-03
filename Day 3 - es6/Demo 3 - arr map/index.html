@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numbers = [4, 9, 16, 25];
+        const newArr = numbers.map(Math.sqrt)
+        console.log(newArr);
+
+        // -------------------------------------------
+
+        const numbers1 = [65, 44, 12, 4];
+        const newArr1 = numbers1.map(myFunction);
+        function myFunction(num) { return num * 10; }
+        console.log(newArr1);
+        // -------------------------------------------
+        const persons = [
+            { firstname: "Malcom", lastname: "Reynolds" },
+            { firstname: "Kaylee", lastname: "Frye" },
+            { firstname: "Jayne", lastname: "Cobb" }
+        ];
+        const names = persons.map(getFullName);
+        function getFullName(item) {
+            return [item.firstname, item.lastname].join(" ");
+        }
+        console.log(names);
+    </script>
+</body>
+
+</html>
