@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const axios = require('axios');
+
+        // Make a request for a user with a given ID
+        axios.get('/user?ID=12345')
+            .then(function (response) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+
+        // Optionally the request above could also be done as
+        axios.get('/user', {
+            params: {
+                ID: 12345
+            }
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+
+        // Want to use async/await? Add the `async` keyword to your outer function/method.
+        async function getUser() {
+            try {
+                const response = await axios.get('/user?ID=12345');
+                console.log(response);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // Send a POST request
+        axios({
+            method: 'post',
+            url: '/user/12345',
+            data: {
+                firstName: 'Fred',
+                lastName: 'Flintstone'
+            }
+        });
+
+        // read more at https://axios-http.com
+    </script>
+</body>
+
+</html>
