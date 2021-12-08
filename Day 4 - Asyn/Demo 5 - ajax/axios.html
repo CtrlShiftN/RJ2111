@@ -11,10 +11,10 @@
 <body>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        const axios = require('axios');
+        
 
         // Make a request for a user with a given ID
-        axios.get('/user?ID=12345')
+        axios.get('http://api.giphy.com/v1/gifs/search?q=foot&api_key=OaI8Scqh6gxKwYuB0TXRiZxeyTICIFcX')
             .then(function (response) {
                 // handle success
                 console.log(response);
@@ -25,43 +25,44 @@
             })
             .then(function () {
                 // always executed
+                console.log('always :P')
             });
 
         // Optionally the request above could also be done as
-        axios.get('/user', {
-            params: {
-                ID: 12345
-            }
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+        // axios.get('/user', {
+        //     params: {
+        //         ID: 12345
+        //     }
+        // })
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
+        //     .then(function () {
+        //         // always executed
+        //     });
 
-        // Want to use async/await? Add the `async` keyword to your outer function/method.
-        async function getUser() {
-            try {
-                const response = await axios.get('/user?ID=12345');
-                console.log(response);
-            } catch (error) {
-                console.error(error);
-            }
-        }
+        // // Want to use async/await? Add the `async` keyword to your outer function/method.
+        // async function getUser() {
+        //     try {
+        //         const response = await axios.get('/user?ID=12345');
+        //         console.log(response);
+        //     } catch (error) {
+        //         console.error(error);
+        //     }
+        // }
 
-        // Send a POST request
-        axios({
-            method: 'post',
-            url: '/user/12345',
-            data: {
-                firstName: 'Fred',
-                lastName: 'Flintstone'
-            }
-        });
+        // // Send a POST request
+        // axios({
+        //     method: 'post',
+        //     url: '/user/12345',
+        //     data: {
+        //         firstName: 'Fred',
+        //         lastName: 'Flintstone'
+        //     }
+        // });
 
         // read more at https://axios-http.com
     </script>
