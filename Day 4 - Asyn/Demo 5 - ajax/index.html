@@ -14,18 +14,20 @@
     <p id="demo"></p>
 
     <script>
+        let searchWord = 'foot';
+        let apiUrl = "http://api.giphy.com/v" + 1 + "/gifs/search";
         function requestData() {
             var request = $.ajax({
-                url: "http://api.giphy.com/v1/gifs/search",
+                url: apiUrl,
                 method: "GET",
-                data: { q: 'foot', api_key: 'OaI8Scqh6gxKwYuB0TXRiZxeyTICIFcX' },
+                data: { q: searchWord, api_key: 'OaI8Scqh6gxKwYuB0TXRiZxeyTICIFcX' },
                 dataType: "json"
             });
 
             request.done(function (msg) {
                 let res = msg.data;
                 res.forEach(element => {
-                   document.getElementById('demo').innerHTML += "<img src='"+element.embed_url+"'>" 
+                    document.getElementById('demo').innerHTML += "<img src='" + element.embed_url + "'>"
                 });
                 console.log(msg.data)
             });
