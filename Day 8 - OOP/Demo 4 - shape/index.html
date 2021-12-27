@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Shape {
+            constructor(color, isFilled) {
+                this.color = color;
+                this.isFilled = isFilled;
+            }
+            toString() {
+                console.log('This is a shape with color = ' + this.color + ' and isFilled = ' + this.isFilled);
+            }
+        }
+
+        class Circle extends Shape {
+            constructor(radius, color, isFilled) {
+                super(color, isFilled);
+                this.radius = radius;
+            }
+            getArea() {
+                return Math.PI * Math.pow(this.radius, 2);
+            }
+            getPerimeter() {
+                return Math.PI * this.radius * 2;
+            }
+            toString() {
+                console.log('This is a Circle with color = ' + this.color + ' and isFilled = ' + this.isFilled + ', area = ' + this.getArea() + ', perimeter = ' + this.getPerimeter());
+            }
+        }
+        class Rectangle extends Shape {
+            constructor(width, height, color, isFilled) {
+                super(color, isFilled);
+                this.width = width;
+                this.height = height;
+            }
+            getArea() {
+                return this.width * this.height;
+            }
+            getPerimeter() {
+                return (this.width + this.height) * 2;
+            }
+            toString() {
+                console.log('This is a Rectangle with color = ' + this.color + ' and isFilled = ' + this.isFilled + ', area = ' + this.getArea() + ', perimeter = ' + this.getPerimeter());
+            }
+        }
+
+        let cir = new Circle(2.34,'red',false);
+        cir.toString();
+        let rec = new Rectangle(3,4,'blue',true);
+        rec.toString();
+    </script>
+</body>
+
+</html>
