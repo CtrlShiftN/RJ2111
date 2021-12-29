@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // employee
+        class Employee {
+            constructor(employeeID, firstName, lastName, monthlySalary) {
+                this.employeeID = employeeID;
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.monthlySalary = monthlySalary;
+            }
+            getFullname() {
+                return this.firstName + this.lastName;
+            }
+            getSalary() {
+                return this.monthlySalary;
+            }
+            getAnnualSalary() {
+                return this.getSalary() * 12;
+            }
+            raiseSalary(percent) {
+                this.monthlySalary += this.monthlySalary * (percent / 100);
+            }
+        }
+        // partime employee
+        class ParttimeEmployee extends Employee {
+            constructor(employeeID, firstName, lastName, hourlyWage) {
+                super(employeeID, firstName, lastName);
+                this.hourlyWage = hourlyWage;
+                this.arrOfHour = [];
+            }
+            checkpoint(month, noOfHour) {
+                this.arrOfHour[month] = noOfHour;
+            }
+        }
+        let partEmp = new ParttimeEmployee(1, 'Nguyen Van', 'A', 50);
+        partEmp.checkpoint(2,30);
+        partEmp.checkpoint(5,40);
+        console.log(partEmp.arrOfHour);
+    </script>
+</body>
+
+</html>
