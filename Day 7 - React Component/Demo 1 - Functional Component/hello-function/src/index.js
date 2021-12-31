@@ -20,33 +20,33 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 // demo with function
-const names = ['Batman', 'Iron Man', 'Nicholas Cage', 'Mega Man', 'Bono', 'Catwoman'];
+// const names = ['Batman', 'Iron Man', 'Nicholas Cage', 'Mega Man', 'Bono', 'Catwoman'];
 
-// camelCase, PascalCase, snake_case
-function Hello() {  // note: this function name should named as Pascal case
-  return (
-    names.map((name) => {
-      return (<p>Hello, {name}!</p>)
-    })
-  );
-}
-ReactDOM.render(
-  (
-    <Hello  />
-  ),
-  document.getElementById('root')
-);
-
-// demo su dung props
-// function Hello(props) {  // note: this function name should named as Pascal case
-//       return (<p>Hello, {props.yourAge}!</p>);
+// // camelCase, PascalCase, snake_case
+// function Hello() {  // note: this function name should named as Pascal case
+//   return (
+//     names.map((name) => {
+//       return (<p>Hello, {name}!</p>)
+//     })
+//   );
 // }
 // ReactDOM.render(
 //   (
-//     <Hello yourName="Nguyen" yourAge="18" />
+//     <Hello />
 //   ),
 //   document.getElementById('root')
 // );
+
+// demo su dung props
+function Hello(props) {  // note: this function name should named as Pascal case
+      return (<p>Hello, {props.yourAge}!</p>);
+}
+ReactDOM.render(
+  (
+    <Hello yourName="Nguyen" yourAge="18" />
+  ),
+  document.getElementById('root')
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
