@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const [user, setUser] = useState({ username: "", password: "" });
-    const userlogin = useSelector(state => state.userlogin)
+    const userlogined = useSelector(state => state.userlogined)
     const navigate = useNavigate()
     const setValueForUser = (key, value) => {
         const newVal = { ...user, [key]: value };
@@ -18,19 +18,19 @@ export default function Login() {
         dispatch(loginRedux(user))
     }
     useEffect(() => {
-        if (userlogin.username) {
-            navigate('/user')
+        if (userlogined.username) {
+            navigate('/users')
         }
-    }, [userlogin])
+    }, [userlogined])
     return (
         <div className="login-form container pt-5">
             <form>
                 <div className="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={(e) => setValueForUser('username', e.target.value)}></input>
                 </div>
                 <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label">Password</label>
+                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e) => setValueForUser('password', e.target.value)}></input>
                 </div>
                 <button onClick={() => { login() }} className="btn btn-primary">Submit</button>
